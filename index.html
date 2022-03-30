@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div class="topnav" id="myTopnav">
+            <a href="#home" class="active">Inicio</a>
+            <a href="#news">Regresion lineal</a>
+            <a href="/html/naybe.html">Método Naybe Bayes</a>
+            <a href="#about">Inteligencia Artificial</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <div>
+            <div class="ing">
+                <div class="menu">
+                    <label for="fname">Digite cantidad de valores a ingresar:</label>
+                    <input type="number" name="cantidad" id="input1">
+                    <input id="button" class="buttonIngresar" type="submit" name="button" onclick="myFunction();"
+                        value="Ingresar" />
+                </div>
+                <div>
+                    <label class="step" for="fname">Paso 0</label>
+                </div>
+            </div>
+            <!-- Paso de ingresar los valores para X, Y-->
+            <div class="valores">
+                <div class="cajavalores">
+                    <div>
+                        <!--X-->
+                        <div class="contenedorvalores">
+                            <label for="fname">Digite valores de X:</label>
+                            <input type="text" name="cantidad" id="inputx1" pattern="[0-9,]+">
+                        </div>
+                        <!--Y-->
+                        <div class="contenedorvalores">
+                            <label for="fname">Digite valores de Y:</label>
+                            <input type="text" name="cantidad" id="inputy1">
+                        </div>
+                    </div>
+                    <div>
+                        <!--boton ok-->
+                        <input id="button" class="buttonIngresar" type="submit" name="button"
+                            onclick="registrarValores();" value="Ingresar" />
+                        <input id="button" class="buttonIngresar" type="submit" name="button" onclick="calcular();"
+                            value="Calcular" />
+                    </div>
+                </div>
+                <div class="tablas">
+                    <label for="fname" class="labeltabla">X</label>
+                    <span id="Tablax">[]</span>
+                    <label for="fname" class="labeltabla">Y</label>
+                    <span id="Tablay">[]</span>
+                </div>
+            </div>
+            <div class="calculos">
+                <div class="calculospanel">
+                    <div class="panelcal">
+                        <div><label for="fname" class="labeltabla">X</label></div>
+                        <div>
+                            <span id="TablaxT0" class="XTabla">[]</span>
+                            <span id="TablaxT1" class="XTabla">[]</span>
+                        </div>
+                    </div>
+                    <div class="panelcal1">
+                        <label for="fname" class="labeltabla0">X transpuesta</label>
+                        <span id="TablaxTr0" class="transpuesta">[]</span>
+                        <span id="TablaxTr1" class="transpuesta">[]</span>
+                    </div>
+                    <div class="panelcal2">
+                        <label for="fname" class="labeltabla1"> Multiplicacion de X*XT </label>
+                        <span id="TablaxTX0" class="transpuesta">[1,1..]</span>
+                        <span id="TablaxTX1" class="transpuesta">[1,2..]</span>
+                        <span id="TablaxTX2" class="transpuesta">[2,1..]</span>
+                        <span id="TablaxTX3" class="transpuesta">[2,2..]</span>
+                    </div>
+                    <div class="panelcal3">
+                        <label for="fname" class="labeltabla1"> Determinante </label>
+                        <div class="determ">
+                            <span id="determinante" class="transpuesta">[1/X]</span>
+                            <span id="TablaV0" class="transpuesta">[]</span>
+                        </div>
+                        <div class="determ">                            
+                            <span id="TablaV1" class="transpuesta">[]</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="resolucion">
+                <div class="calculospanel">
+                    <div class="panelsol1">
+                        <div><label for="fname" class="labeltabla">Y</label></div>
+                        <div>
+                            <span id="TablaxY0" class="XTabla">[]</span>                            
+                        </div>
+                    </div>
+                    <div class="panelcal4">
+                        <label for="fname" class="labeltabla0">X transpuesta</label>
+                        <span id="TablaxTR0" class="transpuesta">[]</span>
+                        <span id="TablaxTR1" class="transpuesta">[]</span>
+                    </div>
+                    <div class="panelcal2">
+                        <label for="fname" class="labeltabla1"> Multiplicacion de XT*Y </label>
+                        <span id="TablaxTY0" class="transpuesta">[1,1..]</span>
+                        <span id="TablaxTY1" class="transpuesta">[1,2..]</span>                        
+                    </div>
+                    <div class="panelcal3">
+                        <label for="fname" class="labeltabla1"> Resultados </label>
+                        <div class="determ">
+                            <span id="VTT" class="transpuesta">[X1,Y1,X2,Y2] * </span>
+                           
+                        </div>
+                        <div class="determ">
+                            <span id="VTY" class="transpuesta">[Y1 Y2]</span>                            
+                            
+                        </div>
+                        <div class="determ">
+                            <span id="tx1" class="transpuesta">y = bx + a →</span>
+                            <span id="tx2" class="transpuesta">[]</span>                            
+                            <span id="tx3" class="transpuesta">[]</span>                                  
+                        </div>
+                        <div class="determ">
+                            <span id="tx4" class="transpuesta">y = bx + a </span>
+                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+        <script src="js/linear.js"></script>
+    </main>
+</body>
+
+</html>
