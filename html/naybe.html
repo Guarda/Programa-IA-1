@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\css\style.css">
+    <link rel="stylesheet" href="..\css\style1.css">
     <title>Document</title>
 </head>
 
@@ -13,8 +13,7 @@
     <main>
         <div class="topnav" id="myTopnav">
             <a href="#home" class="active">Inicio</a>
-            <a href="#news">Regresion lineal</a>
-            <a href="#contact">Método Naybe Bayes</a>
+            <a href="../index.html">Regresion lineal</a>            
             <a href="#about">Inteligencia Artificial</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
@@ -23,7 +22,103 @@
         <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <div>
+            <div class="ing">
+                <div class="menu">
+                    <div class="contenedorvalores">
+                        <label for="fname">Digite cantidad de filas:</label>
+                        <input type="text" name="cantidad" id="inputx1" pattern="[0-9,]+">
+                    </div>
+                    <!--Y-->
+                    <div class="contenedorvalores">
+                        <label for="fname">Digite cantidad de columnas incluyendo Y (salida):</label>
+                        <input type="text" name="numofquestions" id="inputy1" pattern="[0-9,]+">
+                    </div>
+                    <input class="buttonIngresar" type="submit" onclick="myFunction();" value="CREAR" />
+                </div>
+               
+            </div>
+            <div class="valores" style="display: none;" id="divVis">
+                <div class="cajavalores">
+                    <div>
+                        <!-- <h3>Enter the name of the test you want to make:</h3>
+                        <input type="text" name="testname" id="testnameID"> -->
+
+                        <h3>Ingrese los valores a cada columna separados con "," ejemplo: 1,2,3,4...</h3>
+                        <!-- <input type="text" name="numofquestions" id="numID"> <button type="button"
+                            onclick="createNewElement()">Let's make it!</button> -->
+                        <hr>
+                        <div class="container">
+                            <div class="vall">
+                                <div id="question-paper"> </div>
+                                <div> <input class="buttonIngresar" type="submit" value="Ingresar"
+                                        onclick="rellenarValores()" /> </div>
+                            </div>
+                            <div id="idbody" class="tabla-container">
+                                <table id="body" class="tabla">
+
+                                </table>
+                            </div>
+                            <div id="idbody1" class="tabla-container1">
+                                <div>Tabla</diV>
+                                <table id="body1" class="tabla">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calculos" style="display: none;" id="divcal">
+                <div class="cajacalculos">
+                    <div>
+                        <!-- <h3>Enter the name of the test you want to make:</h3>
+                        <input type="text" name="testname" id="testnameID"> -->
+                        <h3>Proporciones</h3>
+                        <!-- <input type="text" name="numofquestions" id="numID"> <button type="button"
+                            onclick="createNewElement()">Let's make it!</button> -->
+                        <hr>
+                        <div class="container">
+                            <div  id="divVis1" class="Vis1">
+                                <div id="question-paper1"> </div>
+                                <div> <input class="buttonIngresar" type="submit" value="Aplicar correccion"
+                                        onclick="correccion()" /> </div>
+                            </div>
+                            <div id="divVis2" class="Vis1">
+                                <div id="question-paper2"> </div>
+                                <div> <input class="buttonIngresar" type="submit" value="Agregar Nuevo caso"
+                                        onclick="nuevo()" /> </div>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="caso" style="display: none;" id="divcaso">
+                <div class="cajacaso">
+                    <div>
+                        <!-- <h3>Enter the name of the test you want to make:</h3>
+                        <input type="text" name="testname" id="testnameID"> -->
+
+                        <h3>Nuevo Caso</h3>
+                        <!-- <input type="text" name="numofquestions" id="numID"> <button type="button"
+                            onclick="createNewElement()">Let's make it!</button> -->
+                        <hr>
+                        <div class="container">
+                            <label for="fname">Digite el nuevo caso </label>
+                            <input type="text" name="cantidad" id="nuevocaso" pattern="[0-9,]+">
+                            <input class="buttonIngresar" type="submit" onclick="ingresar();" value="Ingresar" />                          
+                        </div>
+                        <div id="divVis3" class="Vis1">
+                            <div id="question-paper3"> </div>                            
+                        </div> 
+                        <div id="divVis4" class="Vis1">
+                            <div id="question-paper4"> </div>
+                            <div> <input class="buttonIngresar" type="submit" value="Reiniciar"
+                                    onclick="reiniciar()" /> </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/naive.js"></script>
     </main>
 </body>
